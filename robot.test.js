@@ -33,12 +33,21 @@ test('test_that_vintage_robot_needing_repairs_sent_to_station_2', () => {
   expect(result).toBe(expectation);
 });
 
-test.skip('test_that_standard_robot_needing_repairs_sent_to_station_3', () => {
+test('test_that_standard_robot_needing_repairs_sent_to_station_3', () => {
   // arrange
+  let needRepairs = true;
+  let isForeign = false;
+  let isVintage = false;
+  let standardRobot = newRobot(needRepairs, isForeign, isVintage);
+
+  let expectation = 3;
 
   // act
+  let result = station(standardRobot);
 
   // assert
+  expect(result).toBe(expectation);
+
 });
 
 test.skip('test_that_robot_in_good_condition_sent_to_station_4', () => {
