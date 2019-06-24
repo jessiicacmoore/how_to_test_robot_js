@@ -65,12 +65,17 @@ test('test_that_robot_in_good_condition_sent_to_station_4', () => {
   expect(result).toBe(expectation);
 });
 
-test.skip('test_prioritize_tasks_with_empty_todo_list_returns_negative_one', () => {
+test('test_prioritize_tasks_with_empty_todo_list_returns_negative_one', () => {
   // arrange
+  let noToDosRobot = newRobot(needs_repairs=false, foreign_model=false, vintage_model=false);
+
+  let expectation = -1;
 
   // act
+  let result = prioritizeTasks(noToDosRobot);
 
   // assert
+  expect(result).toBe(expectation);
 })
 
 test.skip('test_prioritize_tasks_with_todos_returns_max_todo_value', () => {
