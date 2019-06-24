@@ -47,15 +47,22 @@ test('test_that_standard_robot_needing_repairs_sent_to_station_3', () => {
 
   // assert
   expect(result).toBe(expectation);
-
 });
 
-test.skip('test_that_robot_in_good_condition_sent_to_station_4', () => {
+test('test_that_robot_in_good_condition_sent_to_station_4', () => {
   // arrange
+  let needRepairs = false;
+  let isForeign = false;
+  let isVintage = false;
+  let goodRobot = newRobot(needRepairs, isForeign, isVintage);
+
+  let expectation = 4;
 
   // act
+  let result = station(goodRobot);
 
   // assert
+  expect(result).toBe(expectation);
 });
 
 test.skip('test_prioritize_tasks_with_empty_todo_list_returns_negative_one', () => {
