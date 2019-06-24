@@ -106,10 +106,16 @@ test('test_workday_on_day_off_returns_false', () => {
   expect(result).toBe(expectation);
 });
 
-test.skip('test_workday_not_day_off_returns_true', () => {
+test('test_workday_not_day_off_returns_true', () => {
   // arrange
+  let notDayOffRobot = newRobot(needs_repairs=false, foreign_model=false, vintage_model=false);
+  notDayOffRobot.dayOff = 'Friday';
+
+  let expectation = true;
 
   // act
+  let result = isWorkday(notDayOffRobot, 'Monday');
 
   // assert
+  expect(result).toBe(expectation);
 });
