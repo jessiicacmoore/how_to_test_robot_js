@@ -92,12 +92,18 @@ test('test_prioritize_tasks_with_todos_returns_max_todo_value', () => {
   expect(result).toBe(expectation);
 });
 
-test.skip('test_workday_on_day_off_returns_false', () => {
+test('test_workday_on_day_off_returns_false', () => {
   // arrange
+  let dayOffRobot = newRobot(needs_repairs=false, foreign_model=false, vintage_model=false);
+  dayOffRobot.dayOff = 'Monday';
+  
+  let expectation = false;
 
   // act
+  let result = isWorkday(dayOffRobot, 'Monday');
 
   // assert
+  expect(result).toBe(expectation);
 });
 
 test.skip('test_workday_not_day_off_returns_true', () => {
