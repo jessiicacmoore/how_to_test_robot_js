@@ -78,12 +78,18 @@ test('test_prioritize_tasks_with_empty_todo_list_returns_negative_one', () => {
   expect(result).toBe(expectation);
 })
 
-test.skip('test_prioritize_tasks_with_todos_returns_max_todo_value', () => {
+test('test_prioritize_tasks_with_todos_returns_max_todo_value', () => {
   // arrange
+  let toDosRobot = newRobot(needs_repairs=false, foreign_model=false, vintage_model=false);
+  toDosRobot.todos.push(1,22,5,3,12);
+
+  let expectation = 22;
 
   // act
+  let result = prioritizeTasks(toDosRobot);
 
   // assert
+  expect(result).toBe(expectation);
 });
 
 test.skip('test_workday_on_day_off_returns_false', () => {
